@@ -21,8 +21,8 @@ import com.jeff.model.ResponseToApp;
 @Controller
 public class FileUploadController extends BaseController {
 	// 获取文件上传需要保存的路径，upload文件夹需存在。
-	String path = "F://shareApp_data";
-	String path2 = "F://shareApp_data/headPic/";
+	String path = "\\appData\\shareApp_data";
+	String path2 = "\\shareApp_data\\headPic\\";
 	String fileName;
 
 	@RequestMapping(value = "upload.do")

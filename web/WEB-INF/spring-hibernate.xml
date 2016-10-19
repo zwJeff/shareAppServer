@@ -16,9 +16,9 @@
 	<bean id="dataSource"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
-		<property name="url" value="jdbc:mysql://localhost:3306/shareApp_db" />
-		<property name="username" value="root" />
-		<property name="password" value="123456" />
+		<property name="url" value="jdbc:mysql://114.215.137.58:3306/shareapp_db" />
+		<property name="username" value="86sXl3vA" />
+		<property name="password" value="hDUIg7pb1Iy8" />
 	</bean>
 
 	<!-- 配置hibernate SessionFactory -->
