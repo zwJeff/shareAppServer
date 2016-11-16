@@ -1,8 +1,5 @@
 package com.jeff.service;
 
-import java.util.List;
-
-import com.jeff.model.ResourceModel;
 import com.jeff.model.UserinfoModel;
 
 public interface UserinfoService {
@@ -38,7 +35,6 @@ public interface UserinfoService {
 
 	/**
 	 * 获取用户资料
-	 * @param token
 	 * @param user_id
 	 * @return
 	 */
@@ -65,7 +61,6 @@ public interface UserinfoService {
 	/**
 	 * 绑定解绑手机号
 	 * @param user_id
-	 * @param email
 	 * @return
 	 */
 	public int bindTelephone(String user_id, String telephone);

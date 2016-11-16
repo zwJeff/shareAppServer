@@ -64,8 +64,7 @@ public class UserinfoServiceImp extends BaseService implements UserinfoService {
 
 	/**
 	 * ¿ìËÙµÇÂ¼
-	 * 
-	 * @param userinfo
+	 *
 	 * @return
 	 */
 	public UserinfoModel auto_login(String token) {
@@ -79,14 +78,12 @@ public class UserinfoServiceImp extends BaseService implements UserinfoService {
 			return null;
 		}
 		user.setPassword(null);
-		user.setToken(null);
 		return user;
 	}
 
 	/**
 	 * µÇÂ¼
-	 * 
-	 * @param userinfo
+	 *
 	 * @return
 	 */
 	public UserinfoModel login(String loginname, String password, String token) {

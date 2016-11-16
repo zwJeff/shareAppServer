@@ -13,7 +13,7 @@
       http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
 
 	<!-- 配置数据源 -->
-	<bean id="dataSource"
+	<bean id="dataSource_ali"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
 		<property name="url" value="jdbc:mysql://114.215.137.58:3306/shareapp_db" />
@@ -21,16 +21,24 @@
 		<property name="password" value="hDUIg7pb1Iy8" />
 	</bean>
 
+	<bean id="dataSource_local"
+		  class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<property name="url" value="jdbc:mysql://localhost:3306/shareapp_db" />
+		<property name="username" value="root" />
+		<property name="password" value="123456" />
+	</bean>
+
 	<!-- 配置hibernate SessionFactory -->
 	<bean id="sessionFactory"
 		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
-		<property name="dataSource" ref="dataSource" />
+		<property name="dataSource" ref="dataSource_ali" />
 		<property name="hibernateProperties">
 			<props>
 				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
 				<prop key="hibernate.hbm2ddl.auto">update</prop>
-				<prop key="hibernate.show_sql">false</prop>
-				<prop key="hiberante.format_sql">false</prop>
+				<prop key="hibernate.show_sql">true</prop>
+                <prop key="hiberante.format_sql">true</prop>
 				<!-- <prop key="hibernate.current_session_context_class">thread</prop> -->
 			</props>
 		</property>

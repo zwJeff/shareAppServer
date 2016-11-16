@@ -34,19 +34,20 @@ public class UserinfoController extends BaseController {
 	 */
 	@RequestMapping(value = "/register.do")
 	public void register(String username, String user_type, String password,
-			String email, String telephone, String token,
+			String email, String telephone,
 			HttpServletResponse resp) {
 
 		System.out.println(UserinfoController.class.getName());
 		System.out.println("-----controll层------");
+		String token=MUtils.creatToken();
 		userinfo = new UserinfoModel(username, Integer.parseInt(user_type),
 				password, telephone, email, token);
 
 		String result = userinfoService.register(userinfo);
 
 		if (MUtils.isNumber(result)) {
-			HashMap<String, Integer> mData = new HashMap<String, Integer>();
-			mData.put("userId", Integer.parseInt(result));
+			HashMap<String, UserinfoModel> mData = new HashMap<String, UserinfoModel>();
+			mData.put("user", userinfo);
 			mRespopnseData.setResult(mData);
 			mRespopnseData = new ResponseToApp("200", "注册成功！", 1, mData);
 		} else {
@@ -86,11 +87,6 @@ public class UserinfoController extends BaseController {
 
 	/**
 	 * 快速登录
-	 * 
-	 * @param username
-	 * @param password
-	 * @param email
-	 * @param telephone
 	 */
 	@RequestMapping(value = "/auto_login.do")
 	public void auto_login(String token, HttpServletResponse resp) {
@@ -115,25 +111,24 @@ public class UserinfoController extends BaseController {
 
 	/**
 	 * 登录
-	 * 
-	 * @param username
-	 * @param password
-	 * @param email
-	 * @param telephone
+	 *
 	 */
 	@RequestMapping(value = "/login.do")
-	public void login(String loginname, String password, String token,
+	public void login(String loginname, String password,
 			HttpServletResponse resp) {
 
 		System.out.println(UserinfoController.class.getName());
 		System.out.println("-----controll层------loginname=" + loginname
 				+ "password=" + password);
 
+        String token=MUtils.creatToken();
+
 		UserinfoModel result = userinfoService
 				.login(loginname, password, token);
 		if (result == null) {
 			mRespopnseData = new ResponseToApp("400", "账号或密码错误！", 0, "");
 		} else {
+            result.setToken(token);
 			mRespopnseData = new ResponseToApp("200", "success", 1, result);
 		}
 
@@ -149,7 +144,6 @@ public class UserinfoController extends BaseController {
 	 * 修改密码前用户名手机号校验接口
 	 * 
 	 * @param username
-	 * @param phone
 	 */
 	@RequestMapping(value = "/check_name_phone.do")
 	public void CheckNamePhone(String username, String telephone,
@@ -171,10 +165,7 @@ public class UserinfoController extends BaseController {
 
 	/**
 	 * 修改密码接口
-	 * 
-	 * @param user_id
-	 * @param new_password
-	 * @param resp
+	 *
 	 */
 	@RequestMapping(value = "/change_password.do")
 	public void changePassword(String token, String new_password,
@@ -195,5 +186,4 @@ public class UserinfoController extends BaseController {
 			e.printStackTrace();
 		}
 	}
-
 }
