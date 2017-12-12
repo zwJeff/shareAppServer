@@ -24,15 +24,15 @@
 	<bean id="dataSource_local"
 		  class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
-		<property name="url" value="jdbc:mysql://localhost:3306/shareapp_db" />
+		<property name="url" value="jdbc:mysql://jeffzw.com:3306/shareapp_db" />
 		<property name="username" value="root" />
-		<property name="password" value="123456" />
+		<property name="password" value="zhangwu" />
 	</bean>
 
 	<!-- 配置hibernate SessionFactory -->
 	<bean id="sessionFactory"
 		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
-		<property name="dataSource" ref="dataSource_ali" />
+		<property name="dataSource" ref="dataSource_local" />
 		<property name="hibernateProperties">
 			<props>
 				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
@@ -42,17 +42,22 @@
 				<!-- <prop key="hibernate.current_session_context_class">thread</prop> -->
 			</props>
 		</property>
+		<!--<property name="mappingDirectoryLocations">-->
+			<!--<list>-->
+				<!--<value>classpath:/com/jeff/model/*.hbm.xml</value>-->
+			<!--</list>-->
+		<!--</property>-->
 		<property name="mappingResources">
 			<list>
-				<value>com/jeff/model//PictureListModel.hbm.xml</value>
-				<value>com/jeff/model//CourseTypeModel.hbm.xml</value>
-				<value>com/jeff/model//UserinfoModel.hbm.xml</value>
-				<value>com/jeff/model//ResourceModel.hbm.xml</value>
-				<value>com/jeff/model//CollectListModel.hbm.xml</value>
-				<value>com/jeff/model//AnswerCardModel.hbm.xml</value>
-				<value>com/jeff/model//QuestionModel.hbm.xml</value>
-				<value>com/jeff/model//TaskModel.hbm.xml</value>
-				<value>com/jeff/model//TestPaperModel.hbm.xml</value>
+				<value>com/jeff/model/PictureListModel.hbm.xml</value>
+				<value>com/jeff/model/CourseTypeModel.hbm.xml</value>
+				<value>com/jeff/model/UserinfoModel.hbm.xml</value>
+				<value>com/jeff/model/ResourceModel.hbm.xml</value>
+				<value>com/jeff/model/CollectListModel.hbm.xml</value>
+				<value>com/jeff/model/AnswerCardModel.hbm.xml</value>
+				<value>com/jeff/model/QuestionModel.hbm.xml</value>
+				<value>com/jeff/model/TaskModel.hbm.xml</value>
+				<value>com/jeff/model/TestPaperModel.hbm.xml</value>
 			</list>
 		</property>
 
