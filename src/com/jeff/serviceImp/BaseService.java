@@ -2,15 +2,7 @@ package com.jeff.serviceImp;
 
 import javax.annotation.Resource;
 
-import com.jeff.dao.AnswerCardDao;
-import com.jeff.dao.CollectListDao;
-import com.jeff.dao.CourseTypeDao;
-import com.jeff.dao.PictureListDao;
-import com.jeff.dao.QuestionDao;
-import com.jeff.dao.ResourceDao;
-import com.jeff.dao.TaskDao;
-import com.jeff.dao.TestPaperDao;
-import com.jeff.dao.UserinfoDao;
+import com.jeff.dao.*;
 
 public class BaseService {
 	
@@ -37,11 +29,14 @@ public class BaseService {
 	
 	@Resource(name="TaskDao")
 	protected TaskDao taskDao;
-	
+
 	@Resource(name="TestPaperDao")
 	protected TestPaperDao testPaperDao;
-	
 
-	
-	
+	@Resource(name="AdsInfoDao")
+	protected AdsInfoDao adsInfoDao;
+
+
+
+
 }

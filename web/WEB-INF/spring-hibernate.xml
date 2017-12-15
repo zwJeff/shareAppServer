@@ -58,6 +58,7 @@
 				<value>com/jeff/model/QuestionModel.hbm.xml</value>
 				<value>com/jeff/model/TaskModel.hbm.xml</value>
 				<value>com/jeff/model/TestPaperModel.hbm.xml</value>
+				<value>com/jeff/model/AdsStatusModel.hbm.xml</value>
 			</list>
 		</property>
 

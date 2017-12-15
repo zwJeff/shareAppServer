@@ -2,14 +2,10 @@ package com.jeff.controller;
 
 import javax.annotation.Resource;
 
+import com.jeff.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.jeff.model.ResponseToApp;
-import com.jeff.service.CollectListService;
-import com.jeff.service.IndexService;
-import com.jeff.service.ResourceService;
-import com.jeff.service.TaskService;
-import com.jeff.service.UserinfoService;
 
 public class BaseController {
 	
@@ -26,9 +22,13 @@ public class BaseController {
 	
 	@Resource(name="IndexService")
 	protected  IndexService indexService;
-	
+
 	@Resource(name="TaskService")
 	protected  TaskService taskService;
+
+
+	@Resource(name="AdsService")
+	protected AdsService adsService;
 	
 	
 	
